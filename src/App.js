@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback } from 'react';
+import Particles from "react-particles";
+import { loadFull } from "tsparticles";
+import ParticlesOptions from "./data/fireworks.json"
+import './styles/App.css';
 
 function App() {
+  const particlesInit= useCallback(
+    main => {loadFull(main)}, []
+  )
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <h1
+    style={{color:"#0000ff"}}>Fireworks happy 4th!!
+   </h1>
+   <Particles
+    options = {ParticlesOptions}
+    init = {particlesInit}
+   />
+   </>
   );
 }
 
